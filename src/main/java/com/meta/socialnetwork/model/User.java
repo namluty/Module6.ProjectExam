@@ -1,4 +1,4 @@
-package model;
+package com.meta.socialnetwork.model;
 
 import lombok.Data;
 
@@ -14,6 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String fullName;
     private String username;
     private String password;
     private String re_password;
@@ -29,17 +30,4 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
-    public User() {
-    }
-
-    public User(String username, String password, String re_password, String email, String phone, LocalDate dateOfBirth) {
-        this.username = username;
-        this.password = password;
-        this.re_password = re_password;
-        this.email = email;
-        this.phone = phone;
-        this.dateOfBirth = dateOfBirth;
-    }
-
 }

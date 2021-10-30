@@ -1,4 +1,4 @@
-package model;
+package com.meta.socialnetwork.model;
 
 import lombok.Data;
 
@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TimeZone;
-import java.util.Timer;
 
 @Entity
 @Data
