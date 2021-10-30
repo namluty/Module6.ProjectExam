@@ -51,17 +51,6 @@ public class AdminController {
         UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();
         return ResponseEntity.ok(new JwtResponse(token, userPrinciple.getId(), userPrinciple.getFullName(), userPrinciple.getAvatarUrl(), userPrinciple.getAuthorities()));
     }
-//    @PostMapping("/signin")
-//    public ResponseEntity<?> login(@RequestBody SignInForm signInForm) {
-//
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword())
-//        );
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        String token = jwtProvider.createToken(authentication);
-//        UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();
-//        return ResponseEntity.ok(new JwtResponse(token,userPrinciple.getId(),userPrinciple.getFullName()
-//                , userPrinciple.getAvatarUrl(), userPrinciple.getAuthorities()));
 
     @PostMapping("/signup")
     public ResponseEntity<?> register(@Valid @RequestBody SignUpForm signUpForm) {
@@ -73,9 +62,9 @@ public class AdminController {
         users.setUsername(signUpForm.getUsername());
         users.setEmail(signUpForm.getEmail());
         users.setPhone(signUpForm.getPhone());
-        users.setRe_password(signUpForm.getRe_password());
         users.setDateOfBirth(signUpForm.getDateOfBirth());
         users.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
+        users.setPassword(passwordEncoder.encode(signUpForm.getRe_password()));
         Set<String> strRole = signUpForm.getRoles();
         Set<Role> roles = new HashSet<>();
         strRole.forEach(role -> {

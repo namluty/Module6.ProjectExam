@@ -15,8 +15,10 @@ public class Post {
     private String content;
     private Boolean status;
     private String imageUrl;
-    private Long user_id;
     private LocalDate created_date;
     private LocalDate modified_date;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

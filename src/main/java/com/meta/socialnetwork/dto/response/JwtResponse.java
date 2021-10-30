@@ -18,11 +18,11 @@ public class JwtResponse {
     public JwtResponse() {
     }
 
-    public JwtResponse(String token,Long id, String avatarUrl, String fullName, Collection<? extends GrantedAuthority> authorities) {
+    public JwtResponse(String token, Long id, String avatarUrl, String fullName, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
         this.id = id;
-        this.avatarUrl = avatarUrl;
         this.fullName = fullName;
+        this.avatarUrl = avatarUrl;
         this.roles = authorities;
     }
 
