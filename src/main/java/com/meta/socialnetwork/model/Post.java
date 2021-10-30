@@ -15,7 +15,8 @@ public class Post {
     private String content;
     private Boolean status;
     private String imageUrl;
-    private Long user_id;
+    @ManyToOne
+    private User user;
     private LocalDate created_date;
     private LocalDate modified_date;
 

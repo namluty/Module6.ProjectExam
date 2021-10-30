@@ -14,9 +14,8 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "post_chat", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private Set<Post> posts = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Post posts ;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -15,12 +15,11 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private String name_send;
-    private String name_received;
     private Boolean status;
     private TimeZone time_send;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_chat", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private Set<User> users = new HashSet<>();
+    @ManyToOne
+    private User user_send;
+    @ManyToOne
+    private User user_receive;
 }

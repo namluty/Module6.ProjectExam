@@ -3,6 +3,7 @@ package com.meta.socialnetwork.service.user;
 import com.meta.socialnetwork.model.User;
 import com.meta.socialnetwork.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
