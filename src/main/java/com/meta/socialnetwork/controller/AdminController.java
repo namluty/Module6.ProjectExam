@@ -43,9 +43,10 @@ public class AdminController {
     JwtProvider jwtProvider;
 
     @PostMapping("/signin")
-    public ResponseEntity<?> login(@Valid @RequestBody SignInForm signInForm) {
+    public ResponseEntity<?> login(@Valid @RequestBody SignInForm signInForm){
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
+                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword())
+        );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtProvider.createToken(authentication);
         UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();

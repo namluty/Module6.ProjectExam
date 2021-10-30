@@ -1,4 +1,5 @@
 package com.meta.socialnetwork.config;
+
 import com.meta.socialnetwork.security.jwt.JwtAuthEntryPoint;
 import com.meta.socialnetwork.security.jwt.JwtAuthTokenFilter;
 import com.meta.socialnetwork.security.userPrinciple.UserDetailServiceImpl;
@@ -26,17 +27,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtAuthEntryPoint jwtAuthEntryPoint;
 
     @Bean
-    public JwtAuthTokenFilter jwtAuthTokenFilter(){
+    public JwtAuthTokenFilter jwtAuthTokenFilter() {
         return new JwtAuthTokenFilter();
     }
+
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
+
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
