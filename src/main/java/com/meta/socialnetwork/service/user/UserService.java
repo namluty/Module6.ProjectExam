@@ -38,6 +38,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User loadUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
     public Boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
     }

@@ -27,7 +27,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 @CrossOrigin(origins = "*")
 public class AdminController {
 
@@ -65,7 +65,7 @@ public class AdminController {
         users.setPhone(signUpForm.getPhone());
         users.setDateOfBirth(signUpForm.getDateOfBirth());
         users.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
-        users.setPassword(passwordEncoder.encode(signUpForm.getRe_password()));
+        users.setRe_password(passwordEncoder.encode(signUpForm.getRe_password()));
         Set<String> strRole = signUpForm.getRoles();
         Set<Role> roles = new HashSet<>();
         strRole.forEach(role -> {
