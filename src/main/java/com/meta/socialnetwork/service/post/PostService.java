@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class PostService implements IPostService{
@@ -31,4 +32,10 @@ public class PostService implements IPostService{
     public void remove(Long id) {
         postRepo.deleteById(id);
     }
+
+    @Override
+    public List<Post> findPostByStatusIsContaining( boolean status) {
+        return postRepo.findPostByStatusIsContaining(status);
+    }
+
 }

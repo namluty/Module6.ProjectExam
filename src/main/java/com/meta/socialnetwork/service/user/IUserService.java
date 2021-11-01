@@ -11,4 +11,5 @@ public interface IUserService extends IService<User> {
     Boolean existsByUsername(String username);
     Optional<User> findByUsername(String username);
     List<User> finAllByRoleName(String roleName);
+    Iterable<User> findAllByUsernameIsContaining(String username);
 }
