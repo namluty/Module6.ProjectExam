@@ -1,5 +1,6 @@
 package com.meta.socialnetwork.service.post;
 
+import com.meta.socialnetwork.model.Like;
 import com.meta.socialnetwork.model.Post;
 import com.meta.socialnetwork.repository.IPostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,6 @@ public class PostService implements IPostService{
     public List<Post> findPostByStatusIsContaining( boolean status) {
         return postRepo.findPostByStatusIsContaining(status);
     }
+
 
 }

@@ -1,9 +1,13 @@
 package com.meta.socialnetwork.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,5 +23,13 @@ public class Post {
     private User user;
     private LocalDate created_date;
     private LocalDate modified_date;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", orphanRemoval = true)
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    @JsonManagedReference
+    @OneToMany
+    private List<Comment> commentList;
+    @OneToMany
+    private List<Like> likeList;
 
 }

@@ -57,9 +57,11 @@ public class UserController {
 
     @GetMapping("/deletepost/{idPost}")
     public ResponseEntity<String> deletePost(@PathVariable Long idPost) {
-        postService.remove(idPost);
         Iterable<Comment> listComment = commentService.findAllByPost_Id(idPost);
         commentService.deleteAll(listComment);
+        Iterable<Like> likes = likeService.findAllLikeByPosts_Id(idPost);
+        likeService.deleteAll(likes);
+        postService.remove(idPost);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 

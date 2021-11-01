@@ -29,4 +29,14 @@ public class LikeService implements ILikeService{
     public void remove(Long id) {
         likeRepo.deleteById(id);
     }
+
+    @Override
+    public Iterable<Like> findAllLikeByPosts_Id(Long id) {
+        return likeRepo.findAllLikeByPosts_Id(id);
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Like> likes) {
+        likeRepo.deleteAll(likes);
+    }
 }
